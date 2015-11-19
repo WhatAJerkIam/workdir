@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+<!--
+    <localRepository>/repository</localRepository>
+-->
+<servers>
+    <server>
+        <id>snapshots</id>
+        <username>snapshot</username>
+        <password>4AC8EMK#FrykJfG7</password>
+        <filePermissions>664</filePermissions>
+        <directoryPermissions>775</directoryPermissions>
+    </server>
+</servers>
+<profiles>
+    <profile>
+        <id>WangYinNexus</id>
+        <repositories>
+            <repository>
+                <id>WangYinNexus</id>
+                <url>http://10.45.241.159:8081/nexus/content/groups/public</url>
+                <releases>
+                    <enabled>true</enabled>
+                    <!-- always , daily (default), interval:X (where X is an integer in minutes) or never. -->
+                    <updatePolicy>always</updatePolicy>
+                    <checksumPolicy>warn</checksumPolicy>
+                </releases>
+                <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+                </snapshots>
+            </repository>
+        </repositories>
+        <pluginRepositories>
+            <pluginRepository>
+                <id>WangYinNexus</id>
+                <url>http://10.45.241.159:8081/nexus/content/groups/public</url>
+                <releases>
+                    <enabled>true</enabled>
+                    <checksumPolicy>warn</checksumPolicy>
+                </releases>
+                <snapshots>
+                    <enabled>true</enabled>
+                    <checksumPolicy>fail</checksumPolicy>
+                </snapshots>
+            </pluginRepository>
+        </pluginRepositories>
+    </profile>
+</profiles>
+  
+<activeProfiles>
+    <activeProfile>WangYinNexus</activeProfile>
+</activeProfiles>
+  
+</settings>
