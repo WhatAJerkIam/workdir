@@ -14,7 +14,92 @@
         <directoryPermissions>775</directoryPermissions>
     </server>
 </servers>
+
+<mirrors>
+    <mirror>
+      <id>repo1</id>
+      <name>Repo1</name>
+      <url>http://repo1.maven.org/maven2</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>repo2</id>
+      <name>Repo2</name>
+      <url>http://repo2.maven.org/maven2</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>mvnrepo</id>
+      <name>mvnrepo</name>
+      <url>http://mvnrepository.com/artifact</url>
+      <mirrorOf>abc</mirrorOf>
+    </mirror>
+  </mirrors>
+
 <profiles>
+     <profile>
+      <id>yj</id>
+      <repositories>
+        <repository>
+                     <id>mvnrepository</id>
+            <name>mvnrepository Maven Repository</name>
+            <url>http://mvnrepository.com/artifact</url>
+                        <layout>default</layout>
+
+        </repository>
+        <repository>
+            <id>ibiblio</id>
+            <name>Ibiblio Maven Repository</name>
+            <url>http://www.ibiblio.org/maven2</url>
+        </repository>
+        <repository>
+            <id>maven</id>
+            <name>Slowly office site</name>
+            <url>http://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+          <id>repository.springframework.maven.release</id>
+          <name>Spring Framework Maven Release Repository</name>
+          <url> http://maven.springframework.org/release</url>
+      </repository>
+      <repository>
+        <id>mybatis-snapshot</id>
+        <name>MyBatis Snapshot Repository</name>
+        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      </repository>
+      <repository>
+        <id>spring-release</id>
+        <name>Spring Maven Release Repository</name>
+        <url>http://repo.springsource.org/libs-release</url>
+      </repository>
+      <repository>
+        <id>offical</id>
+        <name>Maven Official Repository</name>
+        <url>http://repo1.maven.org/maven2</url>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+      </repository>
+
+      <repository>
+        <id>java.net</id>
+        <name>Java.net Repository</name>
+        <url>http://download.java.net/maven/2/</url>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+      </repository>
+      <repository>
+         <id>opensesame</id>
+          <name>Alibaba OpenSource Repsoitory</name>
+          <url>http://code.alibabatech.com/mvn/releases/</url>
+          <snapshots>
+               <enabled>false</enabled>
+          </snapshots>
+      </repository>
+  </repositories>
+
+    </profile>
     <profile>
         <id>WangYinNexus</id>
         <repositories>
@@ -52,7 +137,7 @@
 </profiles>
   
 <activeProfiles>
-    <activeProfile>WangYinNexus</activeProfile>
+    <activeProfile>yj</activeProfile>
 </activeProfiles>
   
 </settings>
