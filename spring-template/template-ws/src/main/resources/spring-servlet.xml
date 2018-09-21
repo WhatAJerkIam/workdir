@@ -1,37 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xmlns:mvc="http://www.springframework.org/schema/mvc"
-	   xmlns:context="http://www.springframework.org/schema/context"
-	   xmlns:aop="http://www.springframework.org/schema/aop"
-	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 
-	<!--配置文件读取 -->
-	<bean
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
-		<property name="ignoreResourceNotFound" value="true" />
-		<property name="locations">
-			<list>
-				<value>classpath*:*.properties</value>
-			</list>
-		</property>
-	</bean>
+  <!--配置文件读取 -->
+  <bean
+    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+    <property name="ignoreResourceNotFound" value="true" />
+    <property name="locations">
+      <list>
+        <!--<value>classpath*:*.properties</value> -->
+      </list>
+    </property>
+  </bean>
 
-	<!--组件声明 -->
-	<context:component-scan base-package="yj.spring.**" />
-	<aop:aspectj-autoproxy expose-proxy="true" />
-	<context:annotation-config />
-
-
-	<!-- 项目中使用注解 -->
-	<mvc:annotation-driven>
-	</mvc:annotation-driven>
+  <!--组件声明 -->
+  <context:annotation-config />
+  <context:component-scan base-package="yj.spring" />
+  <aop:aspectj-autoproxy expose-proxy="true" />
 
 
-	<!--<import resource=".xml" />-->
+
+  <!-- 项目中使用注解 -->
+  <mvc:annotation-driven>
+  </mvc:annotation-driven>
+  <mvc:annotation-driven>
+    <mvc:message-converters>
+      <bean
+        class="org.springframework.http.converter.StringHttpMessageConverter" />
+      <bean
+        class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+    </mvc:message-converters>
+  </mvc:annotation-driven>
+
+  <import resource="spring-datasource.xml" />
 </beans>
