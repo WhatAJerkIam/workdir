@@ -20,6 +20,7 @@ import com.github.pagehelper.Page;
 import yj.spring.template.api.IHelloService;
 import yj.spring.template.dao.mappers.FundAutoTradeMapper;
 import yj.spring.template.dao.model.FundAutoTrade;
+import yj.spring.template.util.PageBean;
 
 import java.io.IOException;
 
@@ -51,7 +52,11 @@ public class HelloServiceImpl implements IHelloService {
 
         Page<FundAutoTrade> trade = fundAutoTradeMapper.selectByPage(new RowBounds(0, 10));
         logger.info(ToStringBuilder.reflectionToString(trade));
-        return trade;
+
+        PageBean pageBean = new PageBean();
+        pageBean.setRows(trade);
+        pageBean.setTotal(trade.getTotal());
+        return pageBean;
     }
 
 
