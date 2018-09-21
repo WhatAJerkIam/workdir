@@ -1,4 +1,4 @@
-package yj.spring.template.aop;
+package yj.spring.template.bean;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package yj.spring.template.aop;
+package yj.spring.template.bean;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
