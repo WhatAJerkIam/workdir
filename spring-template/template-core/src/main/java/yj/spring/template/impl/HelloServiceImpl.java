@@ -1,6 +1,7 @@
 package yj.spring.template.impl;
 
 import javax.annotation.Resource;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
@@ -48,7 +49,7 @@ public class HelloServiceImpl implements IHelloService {
     @ResponseBody
     @RequestMapping(value = "trade/{id}")
     @Override
-    public Object getTradeByTrade(@PathVariable("id") Long tradeId) {
+    public Object getTradeByTrade(@PathVariable("id") @NotNull String tradeId) {
 
         Page<FundAutoTrade> trade = fundAutoTradeMapper.selectByPage(new RowBounds(0, 10));
         logger.info(ToStringBuilder.reflectionToString(trade));

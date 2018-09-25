@@ -4,5 +4,5 @@ public interface IHelloService {
 
     public String hello(String to);
 
-    public Object getTradeByTrade(Long tradeId);
+    public Object getTradeByTrade(String tradeId);
 }
