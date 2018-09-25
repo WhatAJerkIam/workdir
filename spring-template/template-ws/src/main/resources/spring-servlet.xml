@@ -30,8 +30,6 @@
 
   <!-- 项目中使用注解 -->
   <mvc:annotation-driven>
-  </mvc:annotation-driven>
-  <mvc:annotation-driven>
     <mvc:message-converters>
       <bean
         class="org.springframework.http.converter.StringHttpMessageConverter" />
@@ -39,6 +37,20 @@
         class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
     </mvc:message-converters>
   </mvc:annotation-driven>
+    <!--<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">-->
+    <!--&lt;!&ndash;-->
+    <!--<property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>-->
+    <!--&ndash;&gt;-->
+    <!--</bean>-->
 
-  <import resource="spring-datasource.xml" />
+    <!--&lt;!&ndash;    <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor">-->
+    <!--<property name="validator" ref="validator"/>-->
+    <!--</bean>&ndash;&gt;
+
+
+
+
+ -->
+
+    <import resource="spring-datasource.xml" />
 </beans>

@@ -1,6 +1,7 @@
 package yj.spring.template.impl;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -21,6 +22,7 @@ import com.github.pagehelper.Page;
 import yj.spring.template.api.IHelloService;
 import yj.spring.template.dao.mappers.FundAutoTradeMapper;
 import yj.spring.template.dao.model.FundAutoTrade;
+import yj.spring.template.req.ValidReq;
 import yj.spring.template.util.PageBean;
 
 import java.io.IOException;
@@ -60,5 +62,10 @@ public class HelloServiceImpl implements IHelloService {
         return pageBean;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "trade2")
+    @Override public Object getTradeByTrade(@Valid  ValidReq req) {
+        return req;
+    }
 
 }
